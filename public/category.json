@@ -1,0 +1,32 @@
+[
+    {
+        "categoryName": "I Phone",
+        "categoryNumber": 1,
+        "categoryImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEsRkrOgQQJyY0n5nzwp9fQVfKVCk3a_eyGw&usqp=CAU"
+    },
+    {
+        "categoryName": "One Plus",
+        "categoryNumber": 2,
+        "categoryImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2YdSalQEZatVREDGy-s7GYf-RP2iAfy_-WhJHiS3TKotXdFfSodkNKKFkWEPMzXrelSM&usqp=CAU"
+    },
+    {
+        "categoryName": "Xiaomi",
+        "categoryNumber": 3,
+        "categoryImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLDMSd40Baf8T1APD7F53qZX199AWGuq1ETQ&usqp=CAU"
+    },
+    {
+        "categoryName": "Samsung",
+        "categoryNumber": 4,
+        "categoryImage": "https://cdn.samsung.com/etc/designs/smg/global/imgs/logo-square-letter.png"
+    },
+    {
+        "categoryName": "Oppo",
+        "categoryNumber": 5,
+        "categoryImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRWw0ddsyPkeGDW7ZYPvKsgmmuDrmh8DviYA&usqp=CAU"
+    },
+    {
+        "categoryName": "Realme",
+        "categoryNumber": 6,
+        "categoryImage": "https://image01.realme.net/general/20181218/1545105227803.png"
+    }
+]

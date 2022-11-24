@@ -1,0 +1,16 @@
+.logo-img {
+    height: 30px;
+    margin-right: 10px;
+
+}
+
+.bg-clr {
+    background-color: rgb(167, 170, 211);
+}
+
+.headerButton {
+    background-color: rgb(49, 47, 47);
+    padding: 7px;
+    color: antiquewhite;
+    border-radius: 5px;
+}
