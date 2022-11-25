@@ -5,14 +5,15 @@ export const getRole = async email => {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
-                // authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
+                authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
             },
         }
     )
     const user = await response.json()
-    console.log(user.role);
+    // console.log(user.role);
     return user?.role
 }
+
 export const getSellerStatus = async email => {
     const response = await fetch(
         `http://localhost:5001/user/${email}`,
@@ -25,14 +26,13 @@ export const getSellerStatus = async email => {
         }
     )
     const user = await response.json()
-    console.log(user.status);
-    console.log(user.email);
+    // console.log(user.status);
+    // console.log(user.email);
     return user?.status
 }
 
 
 // Get all Users ----------
-
 export const getAllUsers = async () => {
     const response = await fetch(`http://localhost:5001/users`, {
         method: 'GET',
@@ -41,12 +41,25 @@ export const getAllUsers = async () => {
             authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
         },
     })
-    console.log('test')
+    // console.log('test')
     const users = await response.json()
 
     return users
 }
 
+// get type wise users (seller/buyer)-----------
+export const getDifCatUsers = async (user_type) => {
+    console.log(user_type);
+    const response = await fetch(`http://localhost:5001/users?role=${user_type}`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
+        },
+    })
+    const users = await response.json()
+    return users
+}
 
 // Verify status change for User from admin dashboard---------
 export const verifySeller = async user => {
@@ -63,6 +76,5 @@ export const verifySeller = async user => {
         }
     )
     const users = await response.json()
-
     return users
 }

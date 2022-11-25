@@ -19,7 +19,7 @@ const DashboardLayout = () => {
     </>
     const adminList = <>
         <li className='font-semibold'><Link to="/dashboard/allSellers">All Sellers</Link></li>
-        <li className='font-semibold'><Link to="/">All Buyers</Link></li>
+        <li className='font-semibold'><Link to="/dashboard/allBuyers">All Buyers</Link></li>
         <li className='font-semibold'><Link to="/">Reported Items</Link></li>
     </>
 

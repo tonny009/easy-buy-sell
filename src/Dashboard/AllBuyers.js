@@ -1,18 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import toast from 'react-hot-toast';
-import { getAllUsers, getDifCatUsers, verifySeller } from '../Api/userApi';
-import Loading from '../Pages/Shared/Loading'
-import SellerRow from './SellerRow';
+import React from 'react';
+import { getAllUsers, getDifCatUsers } from '../Api/userApi';
+import Loading from '../Pages/Shared/Loading';
+import BuyersRow from './BuyersRow';
 
-const AllSellers = () => {
+const AllBuyers = () => {
     // react query used alog with common api function calling--------------
+    // const role='buyers'
 
-    const { data: sellers, isLoading, refetch } = useQuery({
-        queryKey: ['sellers'],
+    const { data: buyers, isLoading, refetch } = useQuery({
+        queryKey: ['buyers'],
         queryFn: async () => {
             try {
-                const data = getDifCatUsers('seller');
+                const data = getDifCatUsers('buyer');
                 return data;
             }
             catch (error) {
@@ -41,44 +41,29 @@ const AllSellers = () => {
 
     }
 
-    const handleStatus = (user) => {
-        verifySeller(user).then(data => {
-            console.log(data)
-            if (data.acknowledged) {
-                alert('Status Updated.')
-            }
-            if (data.modifiedCount > 0) {
-                refetch()
-            }
-        })
-
-    }
-
-
     if (isLoading) {
         return <Loading></Loading>
     }
     return (
         <div className="overflow-x-auto w-full mt-10 mb-10">
+            {console.log('here are buyers:', buyers)}
 
             <table className="table w-full">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
-                        <th>User Name</th>
+                        <th>Buyer Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Status(verified or Not)</th>
                         <th>Delete</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        sellers.map(seller => <SellerRow
-                            key={seller._id} handleDelete={handleDelete} handleStatus={handleStatus} refetch={refetch} eachSeller={seller}>
-
-                        </SellerRow>)
+                        buyers?.map(buyer => <BuyersRow
+                            key={buyer._id} handleDelete={handleDelete} refetch={refetch} eachBuyer={buyer}>
+                        </BuyersRow>)
                     }
                 </tbody>
 
@@ -87,4 +72,4 @@ const AllSellers = () => {
     );
 };
 
-export default AllSellers;
+export default AllBuyers;
