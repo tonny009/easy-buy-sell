@@ -23,6 +23,7 @@ const Signup = () => {
         const role = form.role.value;
         const password = form.password.value
         const photoURL = form.photoURL.value;
+        const status = '0';
 
 
         // console.log(user);
@@ -33,7 +34,7 @@ const Signup = () => {
             .then(result => {
                 console.log(result);
                 const user = {
-                    name, email, role, photoURL
+                    name, email, role, photoURL, status
                 }
                 setAuthToken(user);
                 setRegisterSuccess("Successfully Registered! ")
@@ -83,6 +84,7 @@ const Signup = () => {
                             <select name="role" className="select select-bordered w-full">
                                 <option value='buyer' seleted>Buyer</option>
                                 <option value='seller'>Seller</option>
+                                <option value='admin'>Admin</option>
                             </select>
                         </div>
                         <div className="form-control">

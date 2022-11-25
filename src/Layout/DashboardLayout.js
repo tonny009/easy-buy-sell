@@ -18,7 +18,7 @@ const DashboardLayout = () => {
         {/* <li className='font-semibold'><Link to="/">Become Seller</Link></li> */}
     </>
     const adminList = <>
-        <li className='font-semibold'><Link to="/">All Sellers</Link></li>
+        <li className='font-semibold'><Link to="/dashboard/allSellers">All Sellers</Link></li>
         <li className='font-semibold'><Link to="/">All Buyers</Link></li>
         <li className='font-semibold'><Link to="/">Reported Items</Link></li>
     </>
@@ -59,7 +59,7 @@ const DashboardLayout = () => {
                                         {role && role !== 'admin' ? (
                                             <>{role === 'buyer' ? buyerList : sellerList} </>
                                         ) : (
-                                            { adminList }
+                                            adminList
                                         )}
                                     </ul>
 

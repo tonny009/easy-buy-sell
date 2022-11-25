@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProducts from "../Dashboard/Addproduct/AddProducts";
+import AllSellers from "../Dashboard/AllSellers";
 import Welcome from "../Dashboard/Welcome/Welcome";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import CategoryProducts from "../Pages/CategoryProducts/CategoryProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
@@ -19,8 +21,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/home',
-                element: <Home></Home>,
-                // loader: () => fetch('https://web-development-course-seven.vercel.app/new-courses')
+                element: <Home></Home>
             },
             {
                 path: '/login',
@@ -29,6 +30,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Signup></Signup>,
+            },
+            {
+                path: '/register',
+                element: <Signup></Signup>
+            },
+            {
+                path: '/category/:id',
+                element: <CategoryProducts></CategoryProducts>,
+                loader: ({ params }) => fetch(`http://localhost:5001/products?category=${params.id}`)
             },
             {
                 path: '*',
@@ -48,6 +58,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProducts></AddProducts>,
+            },
+            {
+                path: '/dashboard/allSellers',
+                element: <AllSellers></AllSellers>,
             }
 
         ]
