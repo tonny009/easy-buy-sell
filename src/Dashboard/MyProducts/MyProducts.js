@@ -26,6 +26,8 @@ const MyProducts = () => {
             fetch(`http://localhost:5001/product/${id}`, {
                 method: 'DELETE',
                 headers: {
+                    'content-type': 'application/json',
+
                     authorization: `bearer ${localStorage.getItem('easyBuy-token')}`
                 }
             })
@@ -36,20 +38,38 @@ const MyProducts = () => {
                         // toast.success(` User deleted successfully`)
                     }
                 })
+                .catch(err => console.log('The error is :', err))
         }
 
     }
 
-    const handleAvailable = () => {
-        console.log('Yes available');
+    const handleSold = (id) => {
+
+        const productData = { status: 'Sold', advertise: '0' }
+        fetch(`http://localhost:5001/product/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('easyBuy-token')}`
+            },
+            // body: JSON.stringify({ ...product, status: 'Sold' }),
+            body: JSON.stringify(productData),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged === true) {
+                    refetch();
+                    // toast.success(` User deleted successfully`)
+                }
+            })
+            .catch(err => console.log('The error is :', err))
 
     }
-    const handleSold = (product) => {
 
-        const productData = { status: 'Sold' }
-        console.log(productData);
-        delete user._id
-        fetch(`http://localhost:5001/product/${product._id}`, {
+    const handleAdvertise = (id) => {
+        const productData = { advertise: '1' }
+        fetch(`http://localhost:5001/product/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -66,7 +86,7 @@ const MyProducts = () => {
                     // toast.success(` User deleted successfully`)
                 }
             })
-
+            .catch(err => console.log('The error is :', err))
     }
 
 
@@ -89,7 +109,7 @@ const MyProducts = () => {
                 <tbody>
                     {
                         products?.map(product => <ProductRow
-                            key={product._id} handleDelete={handleDelete} handleAvailable={handleAvailable} handleSold={handleSold} refetch={refetch} eachproduct={product}>
+                            key={product._id} handleDelete={handleDelete} handleAdvertise={handleAdvertise} handleSold={handleSold} refetch={refetch} eachproduct={product}>
 
                         </ProductRow>)
                     }

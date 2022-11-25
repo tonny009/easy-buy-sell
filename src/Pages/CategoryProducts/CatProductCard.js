@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { handleReport } from '../../Api/productsapi';
 import { getSellerStatus } from '../../Api/userApi';
 
 const CatProductCard = ({ product }) => {
@@ -12,8 +13,6 @@ const CatProductCard = ({ product }) => {
             setLoading(false)
         })
     }, [product])
-
-    // console.log('seller id:', status);
 
     return (
         <div className="card lg:card-side h-auto bg-base-100 shadow-xl mt-5 pl-5">
@@ -36,17 +35,28 @@ const CatProductCard = ({ product }) => {
                 <p> <strong>Location: {product.location}</strong></p>
                 <p> <strong>Seller Name: {product.sellerName}</strong>
                     {
-                        status === '1' && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-success">
+                        status === '1' && (<><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-success">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>)
+                        </svg><h5 className='text-success font-bold'>(Verified Seller)</h5></>)
                     }
 
                 </p>
                 <p> <strong>Post Date: {product.date}</strong></p>
-                <div className="card-actions justify-end">
-                    {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
-                    <button className="btn btn-primary">Book Now</button>
+                <div className='flex' >
+                    <div className="card-actions justify-end mr-5">
+                        {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
+                        <button className="btn btn-primary">Book Now</button>
+                    </div>
+                    <div className="card-actions justify-end">
+                        {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
+                        {
+                            product.report && product.report === '1' && (<button disabled className="btn btn-danger">Report</button>) || !product.report && (<button onClick={() => handleReport(product._id)} className="btn btn-danger">Report</button>)
+                        }
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
     );

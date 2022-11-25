@@ -16,17 +16,17 @@ export const getRole = async email => {
 
 export const getSellerStatus = async email => {
     const response = await fetch(
-        `http://localhost:5001/user/${email}`,
+        `http://localhost:5001/userStatus/${email}`,
         {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
+                // authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
             },
         }
     )
     const user = await response.json()
-    // console.log(user.status);
+    console.log(user);
     // console.log(user.email);
     return user?.status
 }

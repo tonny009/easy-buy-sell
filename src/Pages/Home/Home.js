@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import AdvertiseProduct from '../AdvertiseProducts/AdvertiseProduct';
 import About from './About';
 import CategoryCard from './CategoryCard';
 import './home.css'
@@ -32,9 +33,18 @@ const Home = () => {
                         categories?.map(category => <CategoryCard key={category._id} category={category}></CategoryCard>)
                     }
                 </div>
-                <div className='text-center mt-8'>
+                {/* <div className='text-center mt-8'>
                     <button className="btn btn-primary"><Link to='/services'>View All Services</Link></button>
-                </div>
+                </div> */}
+
+
+            </div>
+            <div className='w-full bg-base-200 mb-8 pb-5 pt-5 mx-auto'>
+                <h2 className='text-center font-extrabold text-3xl'>Products Advertise</h2>
+                <AdvertiseProduct></AdvertiseProduct>
+                {/* <div className='text-center mt-8'>
+                    <button className="btn btn-primary"><Link to='/services'>View All Services</Link></button>
+                </div> */}
 
 
             </div>
