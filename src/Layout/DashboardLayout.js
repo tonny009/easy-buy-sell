@@ -11,7 +11,7 @@ const DashboardLayout = () => {
 
     const sellerList = <>
         <li className='font-semibold'><Link to="/dashboard/addproduct">Add Product</Link></li>
-        <li className='font-semibold'><Link to="/dashboard">My Products</Link></li>
+        <li className='font-semibold'><Link to="/dashboard/myproducts">My Products</Link></li>
     </>
     const buyerList = <>
         <li className='font-semibold'><Link to="/">My Orders</Link></li>
