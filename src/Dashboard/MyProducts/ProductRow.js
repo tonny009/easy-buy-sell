@@ -45,7 +45,7 @@ const ProductRow = ({ eachproduct, handleAvailable, handleDelete, handleSold, re
             <td>
                 {
                     advertise === '0' && status === 'Available' && (<button onClick={() => handleAdvertise(_id)} className='btn btn-ghost availableBtn'>Click To Advertise</button>)
-                    || advertise === '1' && (<p className='text-neutral'>Advertised</p>) || !advertise && status === 'Available' && (<button onClick={() => handleAdvertise(_id)} className='btn btn-ghost availableBtn'>Click To Advertise</button>)
+                    || advertise === '1' && (<p className='text-neutral'>Advertised</p>) || !advertise && (<button onClick={() => handleAdvertise(_id)} className='btn btn-ghost availableBtn'>Click To Advertise</button>)
                 }
             </td>
             <td>

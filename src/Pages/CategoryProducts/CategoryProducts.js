@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CatProductCard from './CatProductCard';
 
 const CategoryProducts = () => {
+
+
     const products = useLoaderData()
     console.log(products);
     return (

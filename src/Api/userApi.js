@@ -26,7 +26,6 @@ export const getSellerStatus = async email => {
         }
     )
     const user = await response.json()
-    console.log(user);
     // console.log(user.email);
     return user?.status
 }

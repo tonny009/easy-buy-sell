@@ -14,13 +14,13 @@ const DashboardLayout = () => {
         <li className='font-semibold'><Link to="/dashboard/myproducts">My Products</Link></li>
     </>
     const buyerList = <>
-        <li className='font-semibold'><Link to="/">My Orders</Link></li>
+        <li className='font-semibold'><Link to="/dashboard/myOrders">My Orders</Link></li>
         {/* <li className='font-semibold'><Link to="/">Become Seller</Link></li> */}
     </>
     const adminList = <>
         <li className='font-semibold'><Link to="/dashboard/allSellers">All Sellers</Link></li>
         <li className='font-semibold'><Link to="/dashboard/allBuyers">All Buyers</Link></li>
-        <li className='font-semibold'><Link to="/">Reported Items</Link></li>
+        <li className='font-semibold'><Link to="/dashboard/reported">Reported Items</Link></li>
     </>
 
 

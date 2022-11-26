@@ -2,11 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import AddProducts from "../Dashboard/Addproduct/AddProducts";
 import AllBuyers from "../Dashboard/AllBuyers";
 import AllSellers from "../Dashboard/AllSellers";
+import MyOrders from "../Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Dashboard/MyProducts/MyProducts";
+import Payment from "../Dashboard/Payment/Payment";
+import ReportedProducts from "../Dashboard/ReportedProducts/ReportedProducts";
 import Welcome from "../Dashboard/Welcome/Welcome";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import CategoryProducts from "../Pages/CategoryProducts/CategoryProducts";
+import Checkout from "../Pages/CheckOut/Checkout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
@@ -23,7 +27,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/home',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch(`http://localhost:5001/categories`)
             },
             {
                 path: '/login',
@@ -36,6 +41,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Signup></Signup>
+            },
+            {
+                path: '/checkOut',
+                element: <Checkout></Checkout>
             },
             {
                 path: '/category/:id',
@@ -73,6 +82,19 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/myproducts',
                 element: <MyProducts></MyProducts>,
+            },
+            {
+                path: '/dashboard/reported',
+                element: <ReportedProducts></ReportedProducts>,
+            },
+            {
+                path: '/dashboard/myOrders',
+                element: <MyOrders></MyOrders>,
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5001/bookings/${params.id}`)
             }
 
         ]

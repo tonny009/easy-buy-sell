@@ -1,12 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
-import { handleReport } from '../../Api/productsapi';
+import { getBookedProduct, handleReport } from '../../Api/productsapi';
 import { getSellerStatus } from '../../Api/userApi';
+import BookingModal from '../BookingModals/BookingModal';
 
 const CatProductCard = ({ product }) => {
 
+    // const [isBooked, setIsbooked] = useState()
     const [status, setStatus] = useState(null)
     const [loading, setLoading] = useState(true)
+    const { image, productName, description, purchaseYear, price, condition, isBooked, _id } = product
 
+
+
+
+
+    //checking seller verified or not--------
     useEffect(() => {
         getSellerStatus(product.email).then(data => {
             setStatus(data)
@@ -44,18 +53,30 @@ const CatProductCard = ({ product }) => {
                 <p> <strong>Post Date: {product.date}</strong></p>
                 <div className='flex' >
                     <div className="card-actions justify-end mr-5">
-                        {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
-                        <button className="btn btn-primary">Book Now</button>
+                        <label
+                            disabled={isBooked}
+                            htmlFor="booking-modal"
+                            className="btn btn-primary text-white"
+                        >Book Now!</label>
                     </div>
                     <div className="card-actions justify-end">
                         {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
                         {
-                            product.report && product.report === '1' && (<button disabled className="btn btn-danger">Report</button>) || !product.report && (<button onClick={() => handleReport(product._id)} className="btn btn-danger">Report</button>)
+                            product.report && product.report === '1' && (<button disabled className="btn btn-danger">Report</button>)
+                            ||
+                            !product.report && (<button onClick={() => handleReport(product._id)} className="btn btn-danger">Report</button>)
                         }
 
                     </div>
 
                 </div>
+                {
+                    !isBooked && <BookingModal product={product}></BookingModal>
+                    // productAgain.isBooked && <BookingModal product={product}></BookingModal>
+
+                }
+
+
 
             </div>
         </div>

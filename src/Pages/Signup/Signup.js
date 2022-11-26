@@ -33,10 +33,10 @@ const Signup = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result);
-                const user = {
+                const Registereduser = {
                     name, email, role, photoURL, status
                 }
-                setAuthToken(user);
+                setAuthToken(Registereduser);
                 setRegisterSuccess("Successfully Registered! ")
 
                 updateUserProfile(name, photoURL)
