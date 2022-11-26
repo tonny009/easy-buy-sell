@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 
 const CheckOutForm = ({ orders }) => {
-    const { buyerName, price, productName, buyerEmail } = orders
+    const { buyerName, price, productName, buyerEmail, _id } = orders
 
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
@@ -74,6 +74,45 @@ const CheckOutForm = ({ orders }) => {
             },
         );
 
+        if (confirmError) {
+            setProcessing(false)
+            setCardError(confirmError.message);
+            return;
+        }
+        // console.log(paymentIntent);
+        if (paymentIntent.status === "succeeded") {
+            // setProcessing(true);
+
+            console.log('card info', card);
+            // store payment info in the database
+            const payment = {
+                price,
+                transactionId: paymentIntent.id,
+                buyerEmail,
+                bookingId: _id
+            }
+            console.log(payment);
+            fetch('http://localhost:5001/payments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `bearer ${localStorage.getItem('easyBuy-token')}`
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        setSuccess('Congrats! your payment completed');
+                        setTransactionId(paymentIntent.id);
+                    }
+                })
+
+
+        }
+
+        // setProcessing(false)
     }
     return (
         <>
@@ -97,7 +136,7 @@ const CheckOutForm = ({ orders }) => {
                 <button
                     className='btn btn-sm mt-4 btn-primary'
                     type="submit"
-                    disabled={!stripe || !clientSecret}>
+                    disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>

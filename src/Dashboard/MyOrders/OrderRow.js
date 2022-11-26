@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
-    const { _id, bookingDate, price, productName, image } = eachproduct
+    const { _id, bookingDate, price, productName, image, paid } = eachproduct
     return (
         <tr>
 
@@ -30,12 +30,16 @@ const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
                 {
                     price && eachproduct.paid && <span className='text-primary'>Paid</span>
                 }
+
                 <br></br>
                 {/* <span className="badge badge-ghost badge-sm text-blue-800">{status ? <p>Product is - {status}</p> : ""}</span> */}
             </td>
 
             <td>
-                <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>
+                {
+                    !eachproduct.paid && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
+                }
+
             </td>
 
         </tr>
