@@ -12,7 +12,6 @@ export const addProduct = async productData => {
 }
 
 //get all advertised products------
-// console.log(user_type);
 export const getAdvertise = async () => {
     const adv = '1'
     const response = await fetch(`http://localhost:5001/products?advertise=${adv}`, {
@@ -120,6 +119,9 @@ export const updateBookingStatus = async id => {
         })
         .catch(err => console.log('The adding booking status error is :', err))
 }
+
+
+// get booked products--------
 
 export const getBookedProduct = async (id) => {
     console.log('In function inserted');

@@ -14,6 +14,10 @@ import Checkout from "../Pages/CheckOut/Checkout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import AdminRoute from "./AdminRoute";
+import BuyersRoute from "./BuyersRoute";
+import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -39,16 +43,8 @@ export const routes = createBrowserRouter([
                 element: <Signup></Signup>,
             },
             {
-                path: '/register',
-                element: <Signup></Signup>
-            },
-            {
-                path: '/checkOut',
-                element: <Checkout></Checkout>
-            },
-            {
                 path: '/category/:id',
-                element: <CategoryProducts></CategoryProducts>,
+                element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5001/products?category=${params.id}`)
             },
             {
@@ -68,32 +64,34 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddProducts></AddProducts>,
+                element: <SellerRoute><AddProducts></AddProducts></SellerRoute>,
+                // element: <AddProducts></AddProducts>,
             },
             {
                 path: '/dashboard/allSellers',
-                element: <AllSellers></AllSellers>,
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>,
             }
             ,
             {
                 path: '/dashboard/allBuyers',
-                element: <AllBuyers></AllBuyers>,
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>,
             },
             {
                 path: '/dashboard/myproducts',
-                element: <MyProducts></MyProducts>,
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>,
+                // element: <MyProducts></MyProducts>
             },
             {
                 path: '/dashboard/reported',
-                element: <ReportedProducts></ReportedProducts>,
+                element: <AdminRoute><ReportedProducts></ReportedProducts></AdminRoute>,
             },
             {
                 path: '/dashboard/myOrders',
-                element: <MyOrders></MyOrders>,
+                element: <BuyersRoute><MyOrders></MyOrders></BuyersRoute>,
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <Payment></Payment>,
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5001/bookings/${params.id}`)
             }
 

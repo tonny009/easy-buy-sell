@@ -7,11 +7,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../Api/auth';
 import logImg from '../../assets/login.jpg'
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 // import useTitle from '../../hooks/useTitle'
 
 const Login = () => {
 
-    // useTitle('Login')
+    useTitle('Login')
 
     const [error, setError] = useState('');
     const navigate = useNavigate()
@@ -35,7 +36,7 @@ const Login = () => {
                 setLoading(false)
                 setAuthToken(result.user)
                 // navigate(from, { replace: true })
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 toast.error(err.message)

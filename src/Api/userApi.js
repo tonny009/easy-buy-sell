@@ -1,4 +1,5 @@
 export const getRole = async email => {
+    console.log(email);
     const response = await fetch(
         `http://localhost:5001/user/${email}`,
         {
@@ -10,7 +11,7 @@ export const getRole = async email => {
         }
     )
     const user = await response.json()
-    // console.log(user.role);
+    console.log(user.role);
     return user?.role
 }
 
