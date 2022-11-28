@@ -1,0 +1,14 @@
+.blog-parts {
+    background-color: rgb(179, 166, 255);
+    border-radius: 4px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-container {
+    background-color: rgb(252, 205, 244);
+    border-radius: 5px;
+    padding-top: 8px;
+    padding-left: 10px;
+}

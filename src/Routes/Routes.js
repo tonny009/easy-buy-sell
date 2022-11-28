@@ -11,6 +11,7 @@ import ReportedProducts from "../Dashboard/ReportedProducts/ReportedProducts";
 import Welcome from "../Dashboard/Welcome/Welcome";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import CategoryProducts from "../Pages/CategoryProducts/CategoryProducts";
 import Checkout from "../Pages/CheckOut/Checkout";
 import Home from "../Pages/Home/Home";
@@ -51,6 +52,11 @@ export const routes = createBrowserRouter([
                 element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://easy-buy-server-eight.vercel.app/catproducts?category=${params.id}`)
             },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+
             {
                 path: '*',
                 element: <div className='not-found w-75 h-25 container'><Page404></Page404></div>
