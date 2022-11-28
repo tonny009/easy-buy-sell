@@ -5,11 +5,27 @@
 }
 
 .bg-clr {
-    background-color: rgb(167, 170, 211);
+    background-color: #312e81;
+}
+
+.font-style {
+    font-family: 'fantasy';
+}
+
+.option-font {
+    font-family: 'Tahoma';
+}
+
+.nav-option {
+    background-color: #000000;
+}
+
+li:hover {
+    background-color: rgb(216, 188, 28);
 }
 
 .headerButton {
-    background-color: rgb(49, 47, 47);
+    background-color: rgb(7, 7, 7);
     padding: 7px;
     color: antiquewhite;
     border-radius: 5px;

@@ -6,7 +6,7 @@ import { RouterProvider } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='max-w-screen-xl mx-auto ' data-theme="garden">
+    <div className='max-w-screen-xl mx-auto ' data-theme="valentine">
       <RouterProvider router={routes}>
         <Toaster />
       </RouterProvider>

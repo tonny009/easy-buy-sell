@@ -3,3 +3,9 @@
     background-image: url("https://www.m1.com.sg/-/media/Images/Personal/BBTU/1440x617_bbtu_desk.jpg");
     border-radius: 12px;
 }
+
+.btn-colors {
+    background-color: #312e81;
+    color: #c7d2fe;
+    border: #312e81;
+}

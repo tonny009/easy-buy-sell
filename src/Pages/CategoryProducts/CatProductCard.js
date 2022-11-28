@@ -12,9 +12,6 @@ const CatProductCard = ({ product }) => {
     const { image, productName, description, purchaseYear, price, condition, isBooked, _id } = product
 
 
-
-
-
     //checking seller verified or not--------
     useEffect(() => {
         getSellerStatus(product.email).then(data => {
@@ -24,7 +21,7 @@ const CatProductCard = ({ product }) => {
     }, [product])
 
     return (
-        <div className="card lg:card-side h-auto bg-base-100 shadow-xl mt-5 pl-5">
+        <div className="card lg:card-side h-auto bg-base-100 shadow-xl mt-5 pl-5 ml-2 ">
             <figure><img className='w-64 rounded-lg h-60 pl-4' src={product.image} alt="Album" /></figure>
 
             {/* <figure><img className='w-44 rounded-lg h-60 pl-4' src={img} alt="Album" /></figure> */}
@@ -56,11 +53,10 @@ const CatProductCard = ({ product }) => {
                         <label
                             disabled={isBooked}
                             htmlFor="booking-modal"
-                            className="btn btn-primary text-white"
+                            className="btn btn-colors text-white"
                         >Book Now!</label>
                     </div>
                     <div className="card-actions justify-end">
-                        {/* <button className="btn btn-primary"><Link to={`/servicedetails/${_id}`}>View Details</Link></button> */}
                         {
                             product.report && product.report === '1' && (<button disabled className="btn btn-danger">Report</button>)
                             ||
