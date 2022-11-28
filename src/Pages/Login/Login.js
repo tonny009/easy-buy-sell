@@ -32,10 +32,9 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 toast.success('Login Successful.....!')
-                // Get Token
                 setLoading(false)
-                setAuthToken(result.user)
-                // navigate(from, { replace: true })
+                const loginUserInfo = { email: result.user.email }
+                setAuthToken(loginUserInfo)
                 navigate(from, { replace: true });
             })
             .catch(err => {
@@ -49,10 +48,16 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                setAuthToken(result.user)
+                console.log(result.user);
+                const googleSigninUser = {
+                    email: result.user.email,
+                    role: "buyer",
+                    name: result.user.displayName
+                }
+                setAuthToken(googleSigninUser)
                 setLoading(false)
                 navigate('/')
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
                 // console.log(user)
             })
             .catch(error => {

@@ -6,7 +6,7 @@ export const setAuthToken = user => {
     // }
 
     //   Save user in db & get token
-    fetch(`http://localhost:5001/user/${user?.email}`, {
+    fetch(`https://easy-buy-server-eight.vercel.app/user/${user?.email}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',

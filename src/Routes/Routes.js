@@ -27,12 +27,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch(`http://localhost:5001/categories`)
+                loader: () => fetch(`https://easy-buy-server-eight.vercel.app/categories`)
             },
             {
                 path: '/home',
                 element: <Home></Home>,
-                loader: () => fetch(`http://localhost:5001/categories`)
+                loader: () => fetch(`https://easy-buy-server-eight.vercel.app/categories`)
             },
             {
                 path: '/login',
@@ -45,7 +45,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products?category=${params.id}`)
+                loader: ({ params }) => fetch(`https://easy-buy-server-eight.vercel.app/products?category=${params.id}`)
             },
             {
                 path: '*',
@@ -92,7 +92,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://easy-buy-server-eight.vercel.app/bookings/${params.id}`)
             }
 
         ]

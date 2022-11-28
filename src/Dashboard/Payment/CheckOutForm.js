@@ -19,7 +19,7 @@ const CheckOutForm = ({ orders }) => {
     useEffect(() => {
         console.log('done');
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5001/create-payment-intent", {
+        fetch("https://easy-buy-server-eight.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const CheckOutForm = ({ orders }) => {
                 bookingId: _id
             }
             console.log(payment);
-            fetch('http://localhost:5001/payments', {
+            fetch('https://easy-buy-server-eight.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

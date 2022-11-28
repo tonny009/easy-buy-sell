@@ -1,5 +1,5 @@
 export const addProduct = async productData => {
-    const response = await fetch(`http://localhost:5001/products`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/products`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -14,7 +14,7 @@ export const addProduct = async productData => {
 //get all advertised products------
 export const getAdvertise = async () => {
     const adv = '1'
-    const response = await fetch(`http://localhost:5001/products?advertise=${adv}`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/products?advertise=${adv}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -30,7 +30,7 @@ export const getAdvertise = async () => {
 // get all reported products----------
 export const getReportedProducts = async () => {
     const report = '1'
-    const response = await fetch(`http://localhost:5001/reportproducts?report=${report}`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/reportproducts?report=${report}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -48,7 +48,7 @@ export const getReportedProducts = async () => {
 // get filtered seller products ---------
 export const getSellerProducts = async email => {
     const response = await fetch(
-        `http://localhost:5001/products/${email}`,
+        `https://easy-buy-server-eight.vercel.app/products/${email}`,
         {
             method: 'GET',
             headers: {
@@ -63,7 +63,7 @@ export const getSellerProducts = async email => {
 }
 export const getOrderProducts = async email => {
     const response = await fetch(
-        `http://localhost:5001/bookings?email=${email}`,
+        `https://easy-buy-server-eight.vercel.app/bookings?email=${email}`,
         {
             method: 'GET',
             headers: {
@@ -79,7 +79,7 @@ export const getOrderProducts = async email => {
 
 export const handleReport = (id) => {
     const productData = { report: '1' }
-    fetch(`http://localhost:5001/product/${id}`, {
+    fetch(`https://easy-buy-server-eight.vercel.app/product/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
@@ -102,7 +102,7 @@ export const handleReport = (id) => {
 //add product booked or not status---------
 export const updateBookingStatus = async id => {
     const productData = { isBooked: '1' }
-    fetch(`http://localhost:5001/product/${id}`, {
+    fetch(`https://easy-buy-server-eight.vercel.app/product/${id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -126,7 +126,7 @@ export const updateBookingStatus = async id => {
 export const getBookedProduct = async (id) => {
     console.log('In function inserted');
 
-    const response = await fetch(`http://localhost:5001/singleproduct/${id}`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/singleproduct/${id}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

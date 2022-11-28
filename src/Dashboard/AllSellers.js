@@ -24,7 +24,7 @@ const AllSellers = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete the user?');
         if (proceed) {
-            fetch(`http://localhost:5001/users/${id}`, {
+            fetch(`https://easy-buy-server-eight.vercel.app/users/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('easyBuy-token')}`

@@ -32,7 +32,7 @@ const BookingModal = ({ product }) => {
         // console.log(bookingData);
 
         //send booking data to database---------
-        fetch('http://localhost:5001/bookings', {
+        fetch('https://easy-buy-server-eight.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

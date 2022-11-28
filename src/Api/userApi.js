@@ -1,7 +1,7 @@
 export const getRole = async email => {
     console.log(email);
     const response = await fetch(
-        `http://localhost:5001/user/${email}`,
+        `https://easy-buy-server-eight.vercel.app/user/${email}`,
         {
             method: 'GET',
             headers: {
@@ -17,7 +17,7 @@ export const getRole = async email => {
 
 export const getSellerStatus = async email => {
     const response = await fetch(
-        `http://localhost:5001/userStatus/${email}`,
+        `https://easy-buy-server-eight.vercel.app/userStatus/${email}`,
         {
             method: 'GET',
             headers: {
@@ -34,7 +34,7 @@ export const getSellerStatus = async email => {
 
 // Get all Users ----------
 export const getAllUsers = async () => {
-    const response = await fetch(`http://localhost:5001/users`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/users`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -50,7 +50,7 @@ export const getAllUsers = async () => {
 // get type wise users (seller/buyer)-----------
 export const getDifCatUsers = async (user_type) => {
     console.log(user_type);
-    const response = await fetch(`http://localhost:5001/users?role=${user_type}`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/users?role=${user_type}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -65,7 +65,7 @@ export const getDifCatUsers = async (user_type) => {
 export const verifySeller = async user => {
     delete user._id
     const response = await fetch(
-        `http://localhost:5001/userupdate/${user?.email}`,
+        `https://easy-buy-server-eight.vercel.app/userupdate/${user?.email}`,
         {
             method: 'PUT',
             headers: {

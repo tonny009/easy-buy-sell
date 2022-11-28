@@ -23,7 +23,7 @@ const MyProducts = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete this product?');
         if (proceed) {
-            fetch(`http://localhost:5001/product/${id}`, {
+            fetch(`https://easy-buy-server-eight.vercel.app/product/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json',
@@ -46,7 +46,7 @@ const MyProducts = () => {
     const handleSold = (id) => {
 
         const productData = { status: 'Sold', advertise: '0' }
-        fetch(`http://localhost:5001/product/${id}`, {
+        fetch(`https://easy-buy-server-eight.vercel.app/product/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -69,7 +69,7 @@ const MyProducts = () => {
 
     const handleAdvertise = (id) => {
         const productData = { advertise: '1' }
-        fetch(`http://localhost:5001/product/${id}`, {
+        fetch(`https://easy-buy-server-eight.vercel.app/product/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
