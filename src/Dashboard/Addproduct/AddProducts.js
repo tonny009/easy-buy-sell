@@ -46,7 +46,7 @@ const AddProducts = () => {
             console.log(data);
             setLoading(false)
             toast.success('Product Added!')
-            navigate('/dashboard')
+            navigate('/dashboard/myproducts')
         })
 
     }

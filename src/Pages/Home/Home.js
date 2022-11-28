@@ -1,15 +1,30 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { getAdvertise } from '../../Api/productsapi';
 import AdvertiseProduct from '../AdvertiseProducts/AdvertiseProduct';
 import About from './About';
 import CategoryCard from './CategoryCard';
 import './home.css'
 const Home = () => {
     const categories = useLoaderData();
-    console.log(categories);
+
+    const { data: advertisedProducts, isLoading, refetch } = useQuery({
+        queryKey: ['advertisedProducts'],
+        queryFn: async () => {
+            try {
+                const data = getAdvertise();
+                return data;
+            }
+            catch (error) {
+
+            }
+        }
+    })
     return (
 
         <div className='rounded-xl '>
+
             {/* banner */}
             <div className="hero h-96 banner-img " >
                 <div className="hero-overlay bg-opacity-60"></div>
@@ -36,11 +51,16 @@ const Home = () => {
 
 
             </div>
-            <div className='w-full bg-base-200 mb-8 pb-5 pt-5 mx-auto'>
-                <h2 className='text-center font-extrabold text-3xl'>Advertised Mobiles</h2>
-                <AdvertiseProduct></AdvertiseProduct>
-            </div>
 
+            {/* for advertised product show here is applied condition if there is no advertised product then this portion totally will not apprear------- */}
+            {
+                advertisedProducts?.length !== 0 && (<>
+                    <div className='w-full bg-base-200 mb-8 pb-5 pt-5 mx-auto'>
+                        <h2 className='text-center font-extrabold text-3xl'>Advertised Mobiles</h2>
+                        <AdvertiseProduct></AdvertiseProduct>
+                    </div></>
+                )
+            }
         </div >
     );
 };

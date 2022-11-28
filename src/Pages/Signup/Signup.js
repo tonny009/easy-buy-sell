@@ -84,7 +84,7 @@ const Signup = () => {
                             <select name="role" className="select select-bordered w-full">
                                 <option value='buyer' seleted>Buyer</option>
                                 <option value='seller'>Seller</option>
-                                <option value='admin'>Admin</option>
+                                {/* <option value='admin'>Admin</option> */}
                             </select>
                         </div>
                         <div className="form-control">

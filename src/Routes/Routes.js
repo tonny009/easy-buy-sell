@@ -13,6 +13,7 @@ import CategoryProducts from "../Pages/CategoryProducts/CategoryProducts";
 import Checkout from "../Pages/CheckOut/Checkout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import Page404 from "../Pages/Shared/Page404";
 import Signup from "../Pages/Signup/Signup";
 import AdminRoute from "./AdminRoute";
 import BuyersRoute from "./BuyersRoute";
@@ -49,7 +50,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <div className='not-found w-75 h-25 container'>Sorry ! This page is not found(404)</div>
+                element: <div className='not-found w-75 h-25 container'><Page404></Page404></div>
             }
         ]
     },
