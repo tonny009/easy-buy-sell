@@ -11,7 +11,7 @@ const ReportedProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const data = getReportedProducts(user.email);
+                const data = getReportedProducts();
                 return data;
             }
             catch (error) {

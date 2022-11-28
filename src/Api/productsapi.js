@@ -12,13 +12,13 @@ export const addProduct = async productData => {
 }
 
 //get all advertised products------
-export const getAdvertise = async () => {
+export const getAdvertise = async (email) => {
     const adv = '1'
-    const response = await fetch(`https://easy-buy-server-eight.vercel.app/products?advertise=${adv}`, {
+    const response = await fetch(`https://easy-buy-server-eight.vercel.app/products?advertise=${adv}&email=${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
-            // authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
+            authorization: `Bearer ${localStorage.getItem('easyBuy-token')}`,
         },
     })
     const products = await response.json()

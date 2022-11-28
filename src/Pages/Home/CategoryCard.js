@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const CategoryCard = ({ category }) => {
+    const { user } = useContext(AuthContext)
     // console.log(category);
     const id = category.categoryNumber
     return (

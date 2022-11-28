@@ -1,15 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { getAdvertise } from '../../Api/productsapi';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import CatProductCard from '../CategoryProducts/CatProductCard';
 import AdvertiseProRow from './AdvertiseProRow';
 
 const AdvertiseProduct = () => {
+
+    const { user } = useContext(AuthContext)
+
+
     const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const data = getAdvertise();
+                const data = await getAdvertise(user?.email);
                 return data;
             }
             catch (error) {

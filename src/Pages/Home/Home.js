@@ -1,19 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { getAdvertise } from '../../Api/productsapi';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import AdvertiseProduct from '../AdvertiseProducts/AdvertiseProduct';
 import About from './About';
 import CategoryCard from './CategoryCard';
 import './home.css'
 const Home = () => {
     const categories = useLoaderData();
+    const { user } = useContext(AuthContext)
+    // const email = user.email
 
     const { data: advertisedProducts, isLoading, refetch } = useQuery({
         queryKey: ['advertisedProducts'],
         queryFn: async () => {
             try {
-                const data = getAdvertise();
+                const data = getAdvertise(user.email);
+                // console.log(user.email);
                 return data;
             }
             catch (error) {

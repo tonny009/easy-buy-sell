@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { AuthContext } from "../Contexts/AuthProvider";
 import AddProducts from "../Dashboard/Addproduct/AddProducts";
 import AllBuyers from "../Dashboard/AllBuyers";
 import AllSellers from "../Dashboard/AllSellers";
@@ -21,6 +23,7 @@ import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
 export const routes = createBrowserRouter([
+    // const { user } = useContext(AuthContext)
     {
         path: '/',
         element: <Main></Main>,
@@ -46,7 +49,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://easy-buy-server-eight.vercel.app/products?category=${params.id}`)
+                loader: ({ params }) => fetch(`https://easy-buy-server-eight.vercel.app/catproducts?category=${params.id}`)
             },
             {
                 path: '*',
