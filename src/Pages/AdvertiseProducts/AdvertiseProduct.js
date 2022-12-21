@@ -27,13 +27,9 @@ const AdvertiseProduct = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    // console.log(products);
+
     return (
         <div>
-            {/* {console.log(user)
-            }
-            {console.log(products)
-            } */}
             <div className='grid  gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-5'>
                 {
                     products?.map(product => <CatProductCard

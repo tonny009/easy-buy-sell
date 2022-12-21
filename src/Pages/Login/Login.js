@@ -8,6 +8,7 @@ import { setAuthToken } from '../../Api/auth';
 import logImg from '../../assets/login.jpg'
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import Loading from '../Shared/Loading';
 // import useTitle from '../../hooks/useTitle'
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate()
     const googleProvider = new GoogleAuthProvider()
-    const { providerLogin, signIn, setLoading } = useContext(AuthContext);
+    const { providerLogin, signIn, setLoading, loading } = useContext(AuthContext);
     const location = useLocation();
 
 
@@ -64,6 +65,9 @@ const Login = () => {
                 setError("Something went wrong! ");
             })
 
+    }
+    if (loading) {
+        return <Loading></Loading>
     }
 
 
