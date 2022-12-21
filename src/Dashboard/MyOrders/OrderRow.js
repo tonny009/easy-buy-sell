@@ -20,8 +20,6 @@ const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
             </td>
             <td>
                 {price}
-                {/* <p>{date}</p> */}
-
             </td>
             <td>
                 {
@@ -30,13 +28,8 @@ const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
                 {
                     price && eachproduct.paid && <span className='text-primary'>Paid</span>
                 }
-
                 <br></br>
-                {/* <span className="badge badge-ghost badge-sm text-blue-800">{status ? <p>Product is - {status}</p> : ""}</span> */}
             </td>
-
-
-
         </tr>
     );
 };

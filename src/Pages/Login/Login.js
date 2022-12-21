@@ -48,7 +48,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                console.log(result.user);
+                setLoading(true)
                 const googleSigninUser = {
                     email: result.user.email,
                     role: "buyer",
@@ -58,7 +58,7 @@ const Login = () => {
                 setLoading(false)
                 navigate('/')
                 navigate(from, { replace: true })
-                // console.log(user)
+
             })
             .catch(error => {
                 console.error()

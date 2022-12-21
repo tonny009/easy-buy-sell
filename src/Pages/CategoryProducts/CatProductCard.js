@@ -21,7 +21,7 @@ const CatProductCard = ({ product }) => {
     }, [product])
 
     return (
-        <div className="card lg:card-side h-auto bg-base-100 shadow-xl mt-5 pl-5 ml-2 ">
+        <div className="card lg:card-side h-auto bg-base-200 shadow-xl mt-5 pl-5 ml-2 ">
             <figure><img className='w-64 rounded-lg h-60 pl-4' src={product.image} alt="Album" /></figure>
 
             {/* <figure><img className='w-44 rounded-lg h-60 pl-4' src={img} alt="Album" /></figure> */}
@@ -35,15 +35,15 @@ const CatProductCard = ({ product }) => {
                             <p>{product.description}</p>
                     }
                 </p>
-                <p><strong>Purchased:  {product.purchaseYear} days</strong></p>
+                <p><strong>Purchased:  {product.purchaseYear}</strong></p>
                 <p><strong>Price: ${product.price}</strong></p>
                 <p> <strong>Condition: {product.condition}</strong></p>
                 <p> <strong>Location: {product.location}</strong></p>
                 <p> <strong>Seller Name: {product.sellerName}</strong>
                     {
-                        status === '1' && (<><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-success">
+                        status === '1' && (<div className='flex'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-success">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg><h5 className='text-success font-bold'>(Verified Seller)</h5></>)
+                        </svg><h5 className='text-success font-bold'>(Verified Seller)</h5></div>)
                     }
 
                 </p>
@@ -54,7 +54,7 @@ const CatProductCard = ({ product }) => {
                             disabled={isBooked}
                             htmlFor="booking-modal"
                             className="btn btn-colors text-white"
-                        >Book Now!</label>
+                        >{isBooked && 'Booked' || !isBooked && 'Book Now!'}</label>
                     </div>
                     <div className="card-actions justify-end">
                         {
