@@ -38,9 +38,8 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch(err => {
-                toast.error(err.message)
-                setError(err.message)
-                console.log(err)
+                toast.error("Wrong Email/Password! ....")
+                setError("Wrong email/password.. Please give valid email and password !")
                 setLoading(false)
             })
 
@@ -62,7 +61,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error()
-                setError(error.message);
+                setError("Something went wrong! ");
             })
 
     }
@@ -70,39 +69,41 @@ const Login = () => {
 
     return (
         <div className="hero w-full my-20">
-            <div className="hero-content ml-20 grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
+            <div className="hero-content ml-20 grid gap-5 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <img className='w-3/4' src={logImg} alt="" />
+                    <img className='w-3/4 h-3/4' src={logImg} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
                     <h1 className="text-5xl text-center font-bold clr">Login</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-xl"><strong>Email</strong> </span>
                             </label>
                             <input type="email" name='email' placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-xl"><strong>Password</strong></span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            <br></br>
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <a href="#" className="label-text-alt link link-hover"><strong>Forgot password?</strong></a>
                             </label>
+                            <p><strong className='fs-5 text-red-600'>{error}</strong></p>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
+                            <input className="btn btn-colors" type="submit" value="Login" />
                         </div>
                         <div className="form-control mt-6">
-                            <p><strong className='fs-5 '>{error}</strong></p>
-                            <Button className='login-others-btn loginbtn' onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle></FaGoogle>  Log in With Google</Button>
+
+                            <Button className='login-others-btn loginbtn' onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle className='mr-4'></FaGoogle>  Log in With Google</Button>
                         </div>
                     </form>
 
 
-                    <p className='text-center'>New to Dream Studio? <Link className='text-orange-600 font-bold' to="/register">Sign Up</Link> </p>
+                    <p className='text-center'><strong>New to Dream Studio? </strong><Link className='text-blue-600 font-bold' to="/register">Sign Up</Link> </p>
 
                 </div>
             </div>

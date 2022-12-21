@@ -2,9 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { getOrderProducts } from '../../Api/productsapi';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
+import Loading from '../../Pages/Shared/Loading';
 import OrderRow from './OrderRow';
 
 const MyOrders = () => {
+    useTitle('My Orders')
     const { user } = useContext(AuthContext)
     const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products'],
@@ -18,6 +21,9 @@ const MyOrders = () => {
             }
         }
     });
+    if (isLoading) {
+        <Loading></Loading>
+    }
 
     const handleDelete = () => {
         console.log('Delete Pressed');
@@ -32,8 +38,6 @@ const MyOrders = () => {
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Pay</th>
-                        <th>Delete</th>
-
                     </tr>
                 </thead>
                 <tbody>

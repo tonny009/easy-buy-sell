@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { getAdvertise } from '../../Api/productsapi';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import CatProductCard from '../CategoryProducts/CatProductCard';
+import Loading from '../Shared/Loading';
 import AdvertiseProRow from './AdvertiseProRow';
 
 const AdvertiseProduct = () => {
@@ -22,13 +23,19 @@ const AdvertiseProduct = () => {
             }
         }
     });
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     // console.log(products);
     return (
         <div>
-            {/* <h2 className='text-center font-extrabold text-3xl'>AdverTise Products</h2> */}
+            {/* {console.log(user)
+            }
+            {console.log(products)
+            } */}
             <div className='grid  gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-5'>
                 {
-                    // console.log(products)
                     products?.map(product => <CatProductCard
                         key={products._id} product={product}>
                     </CatProductCard>)

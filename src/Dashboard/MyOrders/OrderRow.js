@@ -25,7 +25,7 @@ const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
             </td>
             <td>
                 {
-                    price && !eachproduct.paid && (<Link to={`/dashboard/payment/${_id}`}><button className='btn btn-ghost availableBtn'>Pay</button></Link>)
+                    price && !eachproduct.paid && (<Link to={`/dashboard/payment/${_id}`}><button className='btn btn-success text-center option-font'>Pay</button></Link>)
                 }
                 {
                     price && eachproduct.paid && <span className='text-primary'>Paid</span>
@@ -35,12 +35,7 @@ const OrderRow = ({ eachproduct, handleDelete, refetch }) => {
                 {/* <span className="badge badge-ghost badge-sm text-blue-800">{status ? <p>Product is - {status}</p> : ""}</span> */}
             </td>
 
-            <td>
-                {
-                    !eachproduct.paid && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
-                }
 
-            </td>
 
         </tr>
     );

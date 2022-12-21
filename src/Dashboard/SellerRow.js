@@ -31,15 +31,15 @@ const SellerRow = ({ eachSeller, handleDelete, handleStatus, refetch }) => {
             <td>
                 {
                     // status
-                    role && role !== 'admin' && status === '0' && (<button onClick={() => handleStatus(eachSeller)} className='btn btn-ghost'>Please Verify</button>)
-                    || (role && role !== 'admin' && status === '1' && (<p className='text-success '>Verified</p>))
+                    role && role !== 'admin' && status === '0' && (<button onClick={() => handleStatus(eachSeller)} className='btn btn-success text-center option-font'>Please Verify</button>)
+                    || (role && role !== 'admin' && status === '1' && (<p className='text-success text-center option-font'>Verified</p>))
                 }
 
 
             </td>
             <td>
                 {
-                    role && role !== 'admin' && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
+                    role && role !== 'admin' && (<button onClick={() => handleDelete(_id)} className='btn btn-error option-font'>Remove User</button>)
                 }
 
                 {/* <button className='btn btn-ghost'><Link to={`/update/${_id}`}>Edit</Link></button> */}

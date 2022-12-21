@@ -2,10 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { getAllUsers, getDifCatUsers, verifySeller } from '../Api/userApi';
+import useTitle from '../hooks/useTitle';
 import Loading from '../Pages/Shared/Loading'
 import SellerRow from './SellerRow';
 
 const AllSellers = () => {
+    useTitle('All Sellers')
     // react query used alog with common api function calling--------------
 
     const { data: sellers, isLoading, refetch } = useQuery({
@@ -59,11 +61,11 @@ const AllSellers = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="overflow-x-auto w-full mt-10 mb-10">
+        <div className="overflow-x-auto w-full   mb-10 option-font">
 
-            <table className="table w-full">
+            <table className="table w-full mr-2">
                 {/* <!-- head --> */}
-                <thead>
+                <thead >
                     <tr>
                         <th>User Name</th>
                         <th>Email</th>

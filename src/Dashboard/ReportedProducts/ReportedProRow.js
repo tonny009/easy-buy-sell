@@ -33,7 +33,7 @@ const ReportedProRow = ({ eachproduct, handleDelete, refetch }) => {
 
             <td>
                 {
-                    eachproduct && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
+                    eachproduct && (<button onClick={() => handleDelete(_id)} className='btn btn-error option-font'>Remove Product</button>)
                 }
             </td>
 

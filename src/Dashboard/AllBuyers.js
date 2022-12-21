@@ -45,7 +45,7 @@ const AllBuyers = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="overflow-x-auto w-full mt-10 mb-10">
+        <div className="overflow-x-auto w-full mb-10">
             {console.log('here are buyers:', buyers)}
 
             <table className="table w-full">

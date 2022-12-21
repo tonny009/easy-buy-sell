@@ -30,7 +30,7 @@ const BuyersRow = ({ eachBuyer, handleDelete, refetch }) => {
             </td>
             <td>
                 {
-                    role && role !== 'admin' && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
+                    role && role !== 'admin' && (<button onClick={() => handleDelete(_id)} className='btn btn-error option-font'>Remove Buyer</button>)
                 }
 
                 {/* <button className='btn btn-ghost'><Link to={`/update/${_id}`}>Edit</Link></button> */}

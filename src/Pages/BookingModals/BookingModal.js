@@ -44,8 +44,9 @@ const BookingModal = ({ product }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     updateBookingStatus(_id)
+                    // navigate('/dashboard/myOrders')
                     toast.success('Booking confirmed');
-                    navigate('/')
+                    navigate('/dashboard/myOrders')
                 }
                 else {
                     toast.error(data.message);

@@ -77,7 +77,8 @@ const Header = () => {
                         :
                         <>
                             {/* <button className='headerButton'><Link className='header-btn-link' to='/login'>Login</Link></button> */}
-                            <a className="btn"><Link className='header-btn-link mr-4 nav-option rounded-xl' to='/login'>Login</Link></a>
+                            {/* <a ><Link className='header-btn-link mr-4 nav-option rounded-xl' to='/login'>Login</Link></a> */}
+                            <button className='headerButton mr-4 nav-option rounded-xl'><Link to='/login'>Login</Link></button>
 
                         </>
                 }

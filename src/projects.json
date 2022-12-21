@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "name": "Easy Buy & Sell",
+        "src": "portfolio/phone.webp",
+        "images": [
+            "easybuy/pic1.png",
+            "easybuy/pic2.png",
+            "easybuy/pic3.png",
+            "easybuy/pic5.png",
+            "easybuy/addproduct.png",
+            "easybuy/myproduct.png"
+        ],
+        "type": "Full Stack Project",
+        "live": "https://easy-buy-sell-5fbe5.web.app/",
+        "client": "https://github.com/tonny009/easy-buy-sell",
+        "server": "https://github.com/tonny009/easy-buy-sell-server"
+    },
+    {
+        "id": 2,
+        "name": "Dream Studio",
+        "src": "portfolio/camera.jpg",
+        "images": [
+            "../public/dreamstudio/pic1.png",
+            "../public/dreamstudio/pic2.png",
+            "../public/dreamstudio/pic3.png",
+            "../public/dreamstudio/pic4.png",
+            "../public/dreamstudio/pic5.png"
+        ],
+        "type": "Full Stack Project",
+        "live": "https://photograpgy-service.web.app/",
+        "client": "https://github.com/tonny009/dream-studio-client",
+        "server": "https://github.com/tonny009/dream-studio-server"
+    },
+    {
+        "id": 3,
+        "name": "E-Learning",
+        "src": "portfolio/eLearning.jpeg",
+        "images": [
+            "../public/elearning/pic1.png",
+            "../public/elearning/pic2.png",
+            "../public/elearning/pic3.png",
+            "../public/elearning/pic4.png"
+        ],
+        "type": "Front End Project",
+        "live": "https://web-development-courses.web.app/",
+        "client": "https://github.com/tonny009/E-Learning",
+        "server": "https://github.com/tonny009/e-learning-server"
+    },
+    {
+        "id": 4,
+        "name": "Quiz Staition",
+        "src": "portfolio/quiz.jpg",
+        "images": [
+            "../public/quiz/pic1.png",
+            "../public/quiz/pic2.png",
+            "../public/quiz/pic3.png"
+        ],
+        "type": "Front End Project",
+        "live": "https://phenomenal-kataifi-f2539f.netlify.app/",
+        "client": "https://github.com/tonny009/quiz-station"
+    }
+]

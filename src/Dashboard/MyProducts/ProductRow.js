@@ -26,31 +26,22 @@ const ProductRow = ({ eachproduct, handleAvailable, handleDelete, handleSold, re
             </td>
             <td>
                 {
-                    status && status === 'Available' && status !== 'Sold' && (<button onClick={() => handleSold(_id)} className='btn btn-ghost availableBtn'>Sold</button>)
-                    || !status && (<button onClick={() => handleSold(_id)} className='btn btn-ghost availableBtn'>Sold</button>)
+                    status && status === 'Available' && status !== 'Sold' && (<button onClick={() => handleSold(_id)} className='btn btn-success font-semibold option-font'>Sold</button>)
+                    || !status && (<button onClick={() => handleSold(_id)} className='btn btn-success font-semibold option-font'>Sold</button>)
                 }
                 <br></br>
-                <span className="badge badge-ghost badge-sm text-blue-800">{status ? <p>Product is - {status}</p> : ""}</span>
+                <span className="badge badge-ghost badge-sm text-blue-800">{status ? <p className='p-4 font-serif'>Product is - {status}</p> : ""}</span>
             </td>
-            {/* <td>
-                {
-                    // status
-                    role && role !== 'admin' && status === '0' && (<button onClick={() => handleStatus(eachSeller)} className='btn btn-ghost'>Please Verify</button>)
-                    || (role && role !== 'admin' && status === '1' && (<p className='text-success '>Verified</p>))
-                }
-
-
-            </td> */}
 
             <td>
                 {
-                    advertise === '0' && status === 'Available' && (<button onClick={() => handleAdvertise(_id)} className='btn btn-ghost availableBtn'>Click To Advertise</button>)
-                    || advertise === '1' && (<p className='text-neutral'>Advertised</p>) || !advertise && (<button onClick={() => handleAdvertise(_id)} className='btn btn-ghost availableBtn'>Click To Advertise</button>)
+                    advertise === '0' && status === 'Available' && (<button onClick={() => handleAdvertise(_id)} className='btn btn-success text-center option-font'>Click To Advertise</button>)
+                    || advertise === '1' && (<p className='text-neutral text-center font-semibold'>Advertised</p>) || !advertise && (<button onClick={() => handleAdvertise(_id)} className='btn btn-'>Click To Advertise</button>)
                 }
             </td>
             <td>
                 {
-                    eachproduct && (<button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>)
+                    eachproduct && (<button onClick={() => handleDelete(_id)} className='btn btn-error option-font'>Remove</button>)
                 }
             </td>
 

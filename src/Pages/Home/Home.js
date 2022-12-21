@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { getAdvertise } from '../../Api/productsapi';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import AdvertiseProduct from '../AdvertiseProducts/AdvertiseProduct';
+import Loading from '../Shared/Loading';
 import About from './About';
 import CategoryCard from './CategoryCard';
 import './home.css'
@@ -25,6 +26,10 @@ const Home = () => {
             }
         }
     })
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     return (
 
         <div className='rounded-xl '>
@@ -58,13 +63,20 @@ const Home = () => {
 
             {/* for advertised product show here is applied condition if there is no advertised product then this portion totally will not apprear------- */}
             {
-                advertisedProducts?.length !== 0 && (<>
-                    <div className='w-full bg-base-200 mb-8 pb-5 pt-5 mx-auto'>
-                        <h2 className='text-center font-extrabold text-3xl'>Advertised Mobiles</h2>
-                        <AdvertiseProduct></AdvertiseProduct>
-                    </div></>
+                user && (
+                    <>
+                        {
+                            advertisedProducts?.length !== 0 && (<>
+                                <div className='w-full bg-base-200 mb-8 pb-5 pt-5 mx-auto'>
+                                    <h2 className='text-center font-extrabold text-3xl'>Advertised Mobiles</h2>
+                                    <AdvertiseProduct></AdvertiseProduct>
+                                </div></>
+                            )
+                        }
+                    </>
                 )
             }
+
         </div >
     );
 };

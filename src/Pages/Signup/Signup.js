@@ -3,12 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../Api/auth';
 import img from '../../assets/register.jpg'
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 
 
 
 const Signup = () => {
+    useTitle('Sign Up')
     const { createUser, updateUserProfile, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate()
@@ -58,9 +60,9 @@ const Signup = () => {
 
     return (
         <div className="hero w-full my-20">
-            <div className="hero-content ml-20 grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
+            <div className="hero-content ml-20 grid gap-5 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <img className='w-3/4' src={img} alt="" />
+                    <img className='w-3/4 h-3/4' src={img} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
                     <h1 className="text-5xl text-center font-bold clr">Sign Up</h1>
@@ -107,7 +109,7 @@ const Signup = () => {
                             <strong className='fs-5'>{registerSuccess}</strong>
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Sign Up" />
+                            <input className="btn btn-colors" type="submit" value="Sign Up" />
                         </div>
                     </form>
                     <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
